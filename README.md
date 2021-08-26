@@ -38,7 +38,7 @@ Use this [shortcode](https://gohugo.io/content-management/shortcodes/):
 {{< asciicast src="/telescope-repo-nvim/telescope.json" poster="npt:0:04" autoplay="true" loop="true" >}}
 ```
 
-*Note*: `src` is know to sometimes cause problem with relative URLs. Your best bet is to use absolute URLs or at least from the root of the site, as in the above example.
+*Note*: `src` is known to sometimes cause problem with relative URLs. Your best bet is to use absolute URLs or at least from the root of the site, as in the above example.
 
 ## Features
 
