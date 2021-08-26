@@ -18,6 +18,10 @@
 ></asciinema-player>
 {{- /* This is loaded multiple times right now, we rely on the browser to deduplicate this */}}
 {{- $js := resources.Get "js/asciinema-player.js" }}
+{{- $js = $js | resources.Minify }}
+{{- $js = $js | resources.Fingerprint "md5" }}
 <script defer src="{{ $js.Permalink }}/"></script>
 {{- $css := resources.Get "css/asciinema-player.css" }}
+{{- $css = $css | resources.Minify }}
+{{- $css = $css | resources.Fingerprint "md5" }}
 <link rel="stylesheet" type="text/css" href="{{ $css.Permalink }}" />
