@@ -34,9 +34,16 @@ and edit your hugo config, for instance for `config.toml`
 ## Use
 
 Use this [shortcode](https://gohugo.io/content-management/shortcodes/):
+<!-- remove -->
 ```md
 {{< asciicast src="/telescope-repo-nvim/telescope.json" poster="npt:0:04" autoplay="true" loop="true" >}}
 ```
+<!-- end_remove -->
+<!-- insert
+```md
+{{</* asciicast src="/telescope-repo-nvim/telescope.json" poster="npt:0:04" autoplay="true" loop="true" */>}}
+```
+end_insert -->
 
 *Note*: `src` is known to sometimes cause problem with relative URLs. Your best bet is to use absolute URLs or at least from the root of the site, as in the above example.
 
