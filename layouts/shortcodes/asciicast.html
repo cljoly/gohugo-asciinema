@@ -16,6 +16,7 @@
 {{ if .Get "author-url"}}author-url="{{ .Get "author-url" }}"{{ end }}
 {{ if .Get "author-img-url"}}author-img-url="{{ .Get "author-img-url" }}"{{ end }}
 ></asciinema-player>
+<noscript><blockquote><p>To run this asciicast without javascript, use <code>asciinema play {{.Get "src" | absURL }}</code> with <a href="https://asciinema.org/">Asciinema</a></p></blockquote></noscript>
 {{- /* This is loaded multiple times right now, we rely on the browser to deduplicate this */}}
 {{- $js := resources.Get "js/asciinema-player.js" }}
 {{- $js = $js | resources.Minify }}
