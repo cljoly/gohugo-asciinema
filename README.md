@@ -9,7 +9,7 @@ end_insert -->
 # GoHugo Asciinema
 <!-- end_remove -->
 
-Insert the [Asciinema Player](https://github.com/asciinema/asciinema-player) in your hugo site with ease.
+Insert the [Asciinema player](https://github.com/asciinema/asciinema-player) in your Hugo site with ease.
 
 ## Install
 
