@@ -17,5 +17,7 @@
 {{ if .Get "author-img-url"}}author-img-url="{{ .Get "author-img-url" }}"{{ end }}
 ></asciinema-player>
 {{- /* This is loaded multiple times right now, we rely on the browser to deduplicate this */}}
-<link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}/css/asciinema-player.css" />
-<script defer src="{{ .Site.BaseURL }}/js/asciinema-player.js"></script>
+{{- $js := resources.Get "js/asciinema-player.js" }}
+<script defer src="{{ $js.Permalink }}/"></script>
+{{- $css := resources.Get "css/asciinema-player.css" }}
+<link rel="stylesheet" type="text/css" href="{{ $css.Permalink }}" />
