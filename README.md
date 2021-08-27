@@ -10,6 +10,8 @@ end_insert -->
 # ⏯️ GoHugo Asciinema
 <!-- end_remove -->
 
+![Min Hugo Version: 0.77.0](https://img.shields.io/badge/min%20Hugo%20version-0.78.0-lightgrey?logo=hugo)
+
 Insert the [Asciinema player](https://github.com/asciinema/asciinema-player) in your Hugo site with ease.
 
 ## Install
