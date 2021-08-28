@@ -1,6 +1,7 @@
 <!-- insert
 ---
-title: ⏯️ GoHugo Asciinema
+title: GoHugo Asciinema
+description: "⏯️ Insert the Asciinema Player in your Hugo site with ease."
 date: 2021-08-21T16:25:33
 gometa: "cj.rs/gohugo-asciinema git https://github.com/cljoly/gohugo-asciinema"
 ---
