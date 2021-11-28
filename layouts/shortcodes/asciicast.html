@@ -16,22 +16,11 @@
 <div id="demo{{ $time }}"></div>
 <script>
 AsciinemaPlayer.create({{ .Get "src" }}, document.getElementById('demo{{ $time }}'), {
-    _: ""
-    {{- if .Get "cols"}}, cols: {{ .Get "cols" }}{{ end }}
-    {{- if .Get "rows"}}, rows: {{ .Get "rows" }}{{ end }}
-    {{- if .Get "autoplay"}}, autoplay: {{ .Get "autoplay" }}{{ end }}
-    {{- if .Get "preload"}}, preload: {{ .Get "preload" }}{{ end }}
-    {{- if .Get "loop"}}, loop: {{ .Get "loop" }}{{ end }}
-    {{- if .Get "startAt"}}, startAt: {{ .Get "startAt" }}{{ end }}
-    {{- if .Get "speed"}}, speed: {{ .Get "speed" }}{{ end }}
-    {{- if .Get "idleTimeLimit"}}, idleTimeLimit: {{ .Get "idleTimeLimit" }}{{ end }}
-    {{- if .Get "poster"}}, poster: {{ .Get "poster" }}{{ end }}
-    {{- if .Get "fontSize"}}, fontSize: {{ .Get "fontSize" }}{{ end }}
-    {{- if .Get "theme"}}, theme: {{ .Get "theme" }}{{ end }}
-    {{- if .Get "title"}}, title: {{ .Get "title" }}{{ end }}
-    {{- if .Get "author"}}, author: {{ .Get "author" }}{{ end }}
-    {{- if .Get "authorUrl"}}, authorUrl: {{ .Get "authorUrl" }}{{ end }}
-    {{- if .Get "authorImgUrl"}}, authorImgUrl: {{ .Get "authorImgUrl" }}{{ end }}
+{{ range $key, $value := .Params }}
+    {{- if ne $key "src" }}
+        {{- $key }}: {{ $value }},
+    {{- end }}
+{{- end }}
 });
 </script>
 <noscript><blockquote><p>To run this asciicast without javascript, use <code>asciinema play {{.Get "src" | absURL }}</code> with <a href="https://asciinema.org/">Asciinema</a></p></blockquote></noscript>

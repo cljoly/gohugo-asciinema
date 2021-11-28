@@ -43,16 +43,20 @@ and edit your hugo config, for instance for `config.toml`
 Use this [shortcode](https://gohugo.io/content-management/shortcodes/):
 <!-- remove -->
 ```md
-{{< asciicast src="/telescope-repo-nvim/telescope.json" poster="npt:0:04" autoplay="true" loop="true" >}}
+{{< asciicast src="/telescope-repo-nvim/telescope.json" poster="npt:0:04" autoPlay=true loop=true >}}
 ```
 <!-- end_remove -->
 <!-- insert
 ```md
-{{</* asciicast src="/telescope-repo-nvim/telescope.json" poster="npt:0:04" autoplay="true" loop="true" */>}}
+{{</* asciicast src="/telescope-repo-nvim/telescope.json" poster="npt:0:04" autoPlay=true loop=true */>}}
 ```
 end_insert -->
 
-*Note*: `src` is known to sometimes cause problem with relative URLs. Your best bet is to use absolute URLs or at least from the root of the site, as in the above example.
+### Notes
+
+* `src` is the only required argument. All the other arguments are parameters in the object passed as the third argument of [`AsciinemaPlayer.create`](https://github.com/asciinema/asciinema-player#api).
+* Numbers and booleans should be passed **without** being enclosed in `"`, i.e. `autoPlay=true`, *not* `autoPlay="true"`.
+* `src` is known to sometimes cause problem with relative URLs. Your best bet is to use absolute URLs or at least from the root of the site, as in the above example.
 
 ## Features
 
