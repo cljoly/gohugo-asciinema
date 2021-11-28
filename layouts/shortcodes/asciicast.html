@@ -1,15 +1,21 @@
-{{- /* This is loaded multiple times right now, we rely on the browser to deduplicate this */}}
-{{- $js := resources.Get "js/asciinema-player.min.js" }}
-{{- $js = $js | resources.Fingerprint "md5" }}
-<script src="{{ $js.Permalink }}"></script>
-{{- $css := resources.Get "css/asciinema-player.css" }}
-{{- $css = $css | resources.Minify }}
-{{- $css = $css | resources.Fingerprint "md5" }}
-<link rel="stylesheet" type="text/css" href="{{ $css.Permalink }}" />
+{{- if eq (.Scratch.Get "GoHugoAsciinemaPlayerShortcode") nil }}
+    {{- $js := resources.Get "js/asciinema-player.min.js" }}
+    {{- $js = $js | resources.Fingerprint "md5" }}
+    <script src="{{ $js.Permalink }}"></script>
+    {{- $css := resources.Get "css/asciinema-player.css" }}
+    {{- $css = $css | resources.Minify }}
+    {{- $css = $css | resources.Fingerprint "md5" }}
+    <link rel="stylesheet" type="text/css" href="{{ $css.Permalink }}" />
 
-<div id="demo"></div>
+    {{- .Scratch.Set "GoHugoAsciinemaPlayerShortcode" 0 }}
+{{- end }}
+{{- $time := .Scratch.Get "GoHugoAsciinemaPlayerShortcode" }}
+{{- $time := add $time 1 }}
+{{- .Scratch.Set "GoHugoAsciinemaPlayerShortcode" $time }}
+
+<div id="demo{{ $time }}"></div>
 <script>
-AsciinemaPlayer.create({{ .Get "src" }}, document.getElementById('demo'), {
+AsciinemaPlayer.create({{ .Get "src" }}, document.getElementById('demo{{ $time }}'), {
     _: ""
     {{- if .Get "cols"}}, cols: {{ .Get "cols" }}{{ end }}
     {{- if .Get "rows"}}, rows: {{ .Get "rows" }}{{ end }}
