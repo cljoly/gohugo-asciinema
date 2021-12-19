@@ -18,6 +18,8 @@ end_insert -->
 
 Insert the [Asciinema player](https://github.com/asciinema/asciinema-player) in your Hugo site with ease.
 
+> Please see the [3beta](https://github.com/cljoly/gohugo-asciinema/tree/3beta) branch for version 3 of the Asciinema player, currently in beta
+
 ## Install
 
 If you haven’t used hugo modules before (you need the go compiler):
