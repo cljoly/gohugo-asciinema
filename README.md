@@ -16,13 +16,13 @@ end_insert -->
 
 ![Min Hugo Version: 0.77.0](https://img.shields.io/badge/min%20Hugo%20version-0.78.0-lightgrey?logo=hugo)
 
-Insert the [Asciinema player](https://github.com/asciinema/asciinema-player) in your Hugo site with ease.
+Insert the [Asciinema player](https://github.com/asciinema/asciinema-player) in your Hugo site with ease. There is also falls back to a helpful message in case javascript is deactivated in the browser.
 
 > Please see the [3beta](https://github.com/cljoly/gohugo-asciinema/tree/3beta) branch for version 3 of the Asciinema player, currently in beta
 
 ## Install
 
-If you haven’t used hugo modules before (you need the go compiler):
+If you haven’t used hugo modules before (make sure the [go compiler](https://go.dev/) is installed as well):
 ```
 hugo mod init <my-module-path>
 ```
