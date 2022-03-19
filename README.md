@@ -38,6 +38,18 @@ and edit your hugo config, for instance for `config.toml`
     path = "cj.rs/gohugo-asciinema"
 ```
 
+### Going Back and Forth Between the Beta and the Default Version
+
+To use the beta version, run:
+```
+hugo mod get -u -v cj.rs/gohugo-asciinema@3beta
+```
+and to go back to the default version
+```
+hugo mod get -u -v cj.rs/gohugo-asciinema
+```
+(we are simply using the [go *version query suffix*](https://go.dev/ref/mod#go-get) here)
+
 ## Use
 
 Use this [shortcode](https://gohugo.io/content-management/shortcodes/):
