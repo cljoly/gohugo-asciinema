@@ -28,7 +28,7 @@ more details in [hugo docs](https://gohugo.io/hugo-modules/use-modules/).
 
 Then just:
 ```
-hugo mod get -u -v cj.rs/gohugo-asciinema
+hugo mod get -u -v cj.rs/gohugo-asciinema@3beta
 ```
 and edit your hugo config, for instance for `config.toml`
 
