@@ -1,3 +1,17 @@
+{{- if eq (.Page.Scratch.Get "GoHugoAsciinemaPlayerShortcode") nil }}
+    {{- $js := resources.Get "js/asciinema-player.js" }}
+    {{- $js = $js | resources.Minify }}
+    {{- $js = $js | resources.Fingerprint "md5" }}
+    <script defer src="{{ $js.Permalink }}"></script>
+
+    {{- $css := resources.Get "css/asciinema-player.css" }}
+    {{- $css = $css | resources.Minify }}
+    {{- $css = $css | resources.Fingerprint "md5" }}
+    <link rel="stylesheet" type="text/css" href="{{ $css.Permalink }}" />
+
+    {{- .Page.Scratch.Set "GoHugoAsciinemaPlayerShortcode" 0 }}
+{{- end }}
+
 <asciinema-player
     src="{{ with .Get "src" }}{{ . }}{{ end }}"
 {{- if .Get "cols"}}cols="{{ .Get "cols" }}"{{ end }}
@@ -17,12 +31,3 @@
 {{- if .Get "author-img-url"}}author-img-url="{{ .Get "author-img-url" }}"{{ end }}
 ></asciinema-player>
 <noscript><blockquote><p>To run this asciicast without javascript, use <code>asciinema play {{.Get "src" | absURL }}</code> with <a href="https://asciinema.org/">Asciinema</a></p></blockquote></noscript>
-{{- /* This is loaded multiple times right now, we rely on the browser to deduplicate this */}}
-{{- $js := resources.Get "js/asciinema-player.js" }}
-{{- $js = $js | resources.Minify }}
-{{- $js = $js | resources.Fingerprint "md5" }}
-<script defer src="{{ $js.Permalink }}"></script>
-{{- $css := resources.Get "css/asciinema-player.css" }}
-{{- $css = $css | resources.Minify }}
-{{- $css = $css | resources.Fingerprint "md5" }}
-<link rel="stylesheet" type="text/css" href="{{ $css.Permalink }}" />
