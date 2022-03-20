@@ -1,4 +1,4 @@
-{{- if eq (.Scratch.Get "GoHugoAsciinemaPlayerShortcode") nil }}
+{{- if eq (.Page.Scratch.Get "GoHugoAsciinemaPlayerShortcode") nil }}
     {{- $js := resources.Get "js/asciinema-player.min.js" }}
     {{- $js = $js | resources.Fingerprint "md5" }}
     <script src="{{ $js.Permalink }}"></script>
@@ -7,11 +7,11 @@
     {{- $css = $css | resources.Fingerprint "md5" }}
     <link rel="stylesheet" type="text/css" href="{{ $css.Permalink }}" />
 
-    {{- .Scratch.Set "GoHugoAsciinemaPlayerShortcode" 0 }}
+    {{- .Page.Scratch.Set "GoHugoAsciinemaPlayerShortcode" 0 }}
 {{- end }}
-{{- $time := .Scratch.Get "GoHugoAsciinemaPlayerShortcode" }}
+{{- $time := .Page.Scratch.Get "GoHugoAsciinemaPlayerShortcode" }}
 {{- $time := add $time 1 }}
-{{- .Scratch.Set "GoHugoAsciinemaPlayerShortcode" $time }}
+{{- .Page.Scratch.Set "GoHugoAsciinemaPlayerShortcode" $time }}
 
 <div id="demo{{ $time }}"></div>
 <script>
