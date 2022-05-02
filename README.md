@@ -62,6 +62,10 @@ end_insert -->
 * Fingerprinted assets, to improve caching and ultimately your site performance
 * Update with `hugo mod get -u cj.rs/gohugo-asciinema`
 
+## How Are the Sources of the Player Generated?
+
+The Asciinema Player version is fetched from the official repository in the corresponding version. Then, if prebuilt JS/CSS files are provided they are used to ease verifiability by third party. If not, these files are generated following the instructions from Asciinema Player readme.
+
 ## Contribute
 
 You may use a local version of this module in hugo like this:
