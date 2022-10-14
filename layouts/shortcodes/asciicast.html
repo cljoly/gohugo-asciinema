@@ -1,12 +1,10 @@
 {{- if eq (.Page.Scratch.Get "GoHugoAsciinemaPlayerShortcode") nil }}
     {{- $js := resources.Get "js/asciinema-player.min.js" }}
     {{- $js = $js | resources.Fingerprint "md5" }}
-    <link rel="preload" as="script" href="{{ $js.Permalink }}" />
     <script src="{{ $js.Permalink }}"></script>
     {{- $css := resources.Get "css/asciinema-player.css" }}
     {{- $css = $css | resources.Minify }}
     {{- $css = $css | resources.Fingerprint "md5" }}
-    <link rel="preload" as="style" href="{{ $css.Permalink }}" />
     <link rel="stylesheet" type="text/css" href="{{ $css.Permalink }}" />
 
     {{- .Page.Scratch.Set "GoHugoAsciinemaPlayerShortcode" 0 }}
