@@ -18,7 +18,7 @@ end_insert -->
 
 Want to insert a short demo of your tool or of a command execution on your website?
 You could insert a video, but then visitors can’t copy text, and it’ll make your page quite heavy.
-The [Asciinema player](https://github.com/asciinema/asciinema-player) solves all of that, by replaying a session stored in a text file.
+The [Asciinema player](https://github.com/asciinema/asciinema-player) solves all of that, by replaying a terminal session stored in a text file.
 
 This Hugo module makes it very easy to use the Asciinema Player on your Hugo-powered static website.
 
