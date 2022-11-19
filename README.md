@@ -16,30 +16,54 @@ end_insert -->
 
 ![Min Hugo Version: 0.77.0](https://img.shields.io/badge/min%20Hugo%20version-0.78.0-lightgrey?logo=hugo)
 
-Insert the [Asciinema player](https://github.com/asciinema/asciinema-player) in your Hugo site with ease. There is also falls back to a helpful message in case javascript is deactivated in the browser.
+Want to insert a short demo of your tool or of a command execution on your website?
+You could insert a video, but then visitors can’t copy text, and it’ll make your page quite heavy.
+The [Asciinema player](https://github.com/asciinema/asciinema-player) solves all of that, by replaying a session stored in a text file.
 
-> Please see the [3beta](https://github.com/cljoly/gohugo-asciinema/tree/3beta) branch for version 3 of the Asciinema player, currently in beta
+This Hugo module makes it very easy to use the Asciinema Player on your Hugo-powered static website.
 
 ## Install
 
-If you haven’t used hugo modules before (make sure the [go compiler](https://go.dev/) is installed as well):
-```
-hugo mod init <my-module-path>
-```
-more details in [hugo docs](https://gohugo.io/hugo-modules/use-modules/).
+### Hugo Module
 
-Then just:
-```
-hugo mod get -u -v cj.rs/gohugo-asciinema
-```
-and edit your hugo config to add the module reference.
-For instance for `config.toml`
+1. Make sure the [go compiler](https://go.dev) is installed as well as [Hugo](https://gohugo.io).
+   To check that, run the commands below. If the programs are installed, they should not return an error. Otherwise, see the [go install instructions](https://go.dev/doc/install) and [Hugo install instructions](https://gohugo.io/getting-started/quick-start/):
+   ```
+   go version
+   ```
+   ```
+   hugo version
+   ```
 
-``` toml
-[module]
-  [[module.imports]]
+2. If you haven’t already, you need to initialize Hugo modules:
+    ```
+    hugo mod init example.com/my-awesome-website
+    ```
+    This needs to be done once per Hugo site.
+    Read the [Hugo documentation](https://gohugo.io/hugo-modules/use-modules/) for details and background.
+
+### Install This Module
+
+1.  Just run:
+    ```
+    hugo mod get -u -v cj.rs/gohugo-asciinema
+    ```
+
+2.  Edit your Hugo config to add the module reference.
+
+    For instance, if you use a `config.toml` config file, add:
+    ``` toml
+    [module]
+    [[module.imports]]
     path = "cj.rs/gohugo-asciinema"
-```
+    ```
+
+    For `config.yml`, add:
+    ``` yaml
+    module:
+    imports:
+        - path: cj.rs/gohugo-asciinema
+    ```
 
 ## Use
 
@@ -59,21 +83,26 @@ end_insert -->
 
 * `src` is the only required argument. All the other arguments are parameters in the object passed as the third argument of [`AsciinemaPlayer.create`](https://github.com/asciinema/asciinema-player#api).
 * ⚠️  `src` is known to sometimes cause problem with relative URLs. Your best bet is to use absolute URLs or at least from the root of the site, as in the above example.
-* Numbers and booleans should be passed **without** being enclosed in `"`, i.e. `autoPlay=true`, *not* `autoPlay="true"`.
+* Number and boolean should be passed **without** being enclosed in `"`, i.e. `autoPlay=true`, *not* `autoPlay="true"`.
 
 ## Features
 
 * Displays a message when JavaScript is disabled in the user browser
 * Fingerprinted assets, to improve caching and ultimately your site performance
-* Update with `hugo mod get -u cj.rs/gohugo-asciinema`
+* Easy update with `hugo mod get -u cj.rs/gohugo-asciinema`
 
 ## How Are the Sources of the Player Generated?
 
-The Asciinema Player version is fetched from the official repository in the corresponding version. Then, if prebuilt JS/CSS files are provided they are used to ease verifiability by third party. If not, these files are generated following the instructions from Asciinema Player readme.
+The Asciinema Player version is fetched from the official repository in the corresponding version.
+Then, if prebuilt JS/CSS files are provided they are used, so that you can verify that this module is actually distributing the original code.
+If not, these files are generated following the instructions from Asciinema Player Readme.
 
 ## Contribute
 
-You may use a local version of this module in hugo like this:
+Contributions (documentation or code improvements in particular) are welcome, see [contributing](https://cj.rs/docs/contribute/)!
+
+To test your code changes locally, you can change your configuration so that your local version is loaded.
+Here is an example in TOML:
 
 ```toml
 [module]
