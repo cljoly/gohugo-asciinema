@@ -1,3 +1,3 @@
-module cj.rs/gohugo-asciinema
+module github.com/neilotoole/gohugo-asciinema
 
 go 1.17
