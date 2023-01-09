@@ -12,11 +12,12 @@
 {{- $time := .Page.Scratch.Get "GoHugoAsciinemaPlayerShortcode" }}
 {{- $time := add $time 1 }}
 {{- .Page.Scratch.Set "GoHugoAsciinemaPlayerShortcode" $time }}
+{{- $mergedParams := merge $.Site.Params.asciinema.defaults .Params -}}
 
 <div id="demo{{ $time }}"></div>
 <script>
 AsciinemaPlayer.create({{ .Get "src" }}, document.getElementById('demo{{ $time }}'), {
-{{ range $key, $value := .Params }}
+{{ range $key, $value := $mergedParams }}
     {{- if ne $key "src" }}
         {{- $key }}: {{ $value }},
     {{- end }}
