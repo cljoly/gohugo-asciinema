@@ -81,15 +81,26 @@ end_insert -->
 
 ### Defaults
 
-You can set default values in your `params.toml` or equivalent. For example:
+You can set default values for the player in your `config.toml` or `params.toml` etc.. For example:
+
+#### `config.toml`
 
 ```toml
-[asciinema]
-  [asciinema.defaults]
-    theme = "solarized-dark"
-    loop = true
-    autoPlay = true
-    speed = "2.5"
+[params.asciinema.defaults]
+theme = "solarized-dark"
+loop = true
+autoPlay = true
+speed = 5.0
+```
+
+#### `params.toml`
+
+```toml
+[asciinema.defaults]
+theme = "solarized-dark"
+loop = true
+autoPlay = true
+speed = 5.0
 ```
 
 ### Notes
