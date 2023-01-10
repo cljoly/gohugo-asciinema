@@ -79,6 +79,30 @@ Use this [shortcode](https://gohugo.io/content-management/shortcodes/):
 ```
 end_insert -->
 
+### Defaults
+
+You can set default values for the player in your `config.toml` or `params.toml` etc.. For example:
+
+#### `config.toml`
+
+```toml
+[params.asciinema.defaults]
+theme = "solarized-dark"
+loop = true
+autoPlay = true
+speed = 5.0
+```
+
+#### `params.toml`
+
+```toml
+[asciinema.defaults]
+theme = "solarized-dark"
+loop = true
+autoPlay = true
+speed = 5.0
+```
+
 ### Notes
 
 * `src` is the only required argument. All the other arguments are parameters in the object passed as the third argument of [`AsciinemaPlayer.create`](https://github.com/asciinema/asciinema-player#api).
