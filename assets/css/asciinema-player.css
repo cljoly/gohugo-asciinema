@@ -157,6 +157,9 @@
 .asciinema-terminal .bright {
   font-weight: bold;
 }
+.asciinema-terminal .faint {
+  opacity: 0.5;
+}
 .asciinema-terminal .underline {
   text-decoration: underline;
 }
@@ -2504,5 +2507,129 @@
 .asciinema-theme-monokai .fg-13,
 .asciinema-theme-monokai .fg-14,
 .asciinema-theme-monokai .fg-15 {
+  font-weight: bold;
+}
+/*
+  Based on Nord: https://github.com/arcticicestudio/nord
+  Via: https://github.com/neilotoole/asciinema-theme-nord
+ */
+.asciinema-theme-nord {
+  background-color: #2E3440;
+}
+.asciinema-theme-nord .asciinema-terminal {
+  color: #ECEFF4;
+  background-color: #2E3440;
+  border-color: #2E3440;
+}
+.asciinema-theme-nord .fg-bg {
+  color: #2E3440;
+}
+.asciinema-theme-nord .bg-fg {
+  background-color: #ECEFF4;
+}
+.asciinema-theme-nord .fg-0 {
+  color: #3B4252;
+}
+.asciinema-theme-nord .bg-0 {
+  background-color: #3B4252;
+}
+.asciinema-theme-nord .fg-1 {
+  color: #BF616A;
+}
+.asciinema-theme-nord .bg-1 {
+  background-color: #BF616A;
+}
+.asciinema-theme-nord .fg-2 {
+  color: #A3BE8C;
+}
+.asciinema-theme-nord .bg-2 {
+  background-color: #A3BE8C;
+}
+.asciinema-theme-nord .fg-3 {
+  color: #EBCB8B;
+}
+.asciinema-theme-nord .bg-3 {
+  background-color: #EBCB8B;
+}
+.asciinema-theme-nord .fg-4 {
+  color: #81A1C1;
+}
+.asciinema-theme-nord .bg-4 {
+  background-color: #81A1C1;
+}
+.asciinema-theme-nord .fg-5 {
+  color: #B48EAD;
+}
+.asciinema-theme-nord .bg-5 {
+  background-color: #B48EAD;
+}
+.asciinema-theme-nord .fg-6 {
+  color: #88C0D0;
+}
+.asciinema-theme-nord .bg-6 {
+  background-color: #88C0D0;
+}
+.asciinema-theme-nord .fg-7 {
+  color: #ECEFF4;
+}
+.asciinema-theme-nord .bg-7 {
+  background-color: #ECEFF4;
+}
+.asciinema-theme-nord .fg-8 {
+  color: #3B4252;
+}
+.asciinema-theme-nord .bg-8 {
+  background-color: #3B4252;
+}
+.asciinema-theme-nord .fg-9 {
+  color: #BF616A;
+}
+.asciinema-theme-nord .bg-9 {
+  background-color: #BF616A;
+}
+.asciinema-theme-nord .fg-10 {
+  color: #A3BE8C;
+}
+.asciinema-theme-nord .bg-10 {
+  background-color: #A3BE8C;
+}
+.asciinema-theme-nord .fg-11 {
+  color: #EBCB8B;
+}
+.asciinema-theme-nord .bg-11 {
+  background-color: #EBCB8B;
+}
+.asciinema-theme-nord .fg-12 {
+  color: #81A1C1;
+}
+.asciinema-theme-nord .bg-12 {
+  background-color: #81A1C1;
+}
+.asciinema-theme-nord .fg-13 {
+  color: #B48EAD;
+}
+.asciinema-theme-nord .bg-13 {
+  background-color: #B48EAD;
+}
+.asciinema-theme-nord .fg-14 {
+  color: #88C0D0;
+}
+.asciinema-theme-nord .bg-14 {
+  background-color: #88C0D0;
+}
+.asciinema-theme-nord .fg-15 {
+  color: #ECEFF4;
+}
+.asciinema-theme-nord .bg-15 {
+  background-color: #ECEFF4;
+}
+.asciinema-theme-nord .fg-8,
+.asciinema-theme-nord .fg-9,
+.asciinema-theme-nord .fg-10,
+.asciinema-theme-nord .fg-11,
+.asciinema-theme-nord .fg-12,
+.asciinema-theme-nord .fg-13,
+.asciinema-theme-nord .fg-14,
+.asciinema-theme-nord .fg-15 {
   font-weight: bold;
 }
