@@ -9,12 +9,22 @@ tags:
 - Asciinema
 ---
 {{< github_badge >}}
+
+{{< rawhtml >}}
+<div class="badges">
+{{< /rawhtml >}}
 end_insert -->
 <!-- remove -->
 # ⏯️ GoHugo Asciinema
 <!-- end_remove -->
 
 ![Min Hugo Version: 0.77.0](https://img.shields.io/badge/min%20Hugo%20version-0.78.0-lightgrey?logo=hugo) [![RSS feed of new versions](https://img.shields.io/badge/subscribe-with%20RSS-FFA500?logo=rss)](https://github.com/cljoly/gohugo-asciinema/releases.atom)
+
+<!-- insert
+{{< rawhtml >}}
+</div>
+{{< /rawhtml >}}
+end_insert -->
 
 Want to insert a short demo of your tool or of a command execution on your website?
 You could insert a video, but then visitors can’t copy text, and it’ll make your page quite heavy.
