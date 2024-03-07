@@ -102,9 +102,9 @@
   overflow: hidden;
   max-width: 100%;
   border-radius: 4px;
-  font-size: 12px;
+  font-size: 15px;
 }
-.asciinema-terminal {
+pre.asciinema-terminal {
   box-sizing: content-box;
   -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
@@ -121,52 +121,53 @@
   cursor: text;
   border-width: 0.75em;
   font-family: Consolas, Menlo, 'Bitstream Vera Sans Mono', monospace, 'Powerline Symbols';
+  font-variant-ligatures: none;
 }
-.asciinema-terminal .line {
+pre.asciinema-terminal .line {
   letter-spacing: normal;
   overflow: hidden;
 }
-.asciinema-terminal .line span {
+pre.asciinema-terminal .line span {
   padding: 0;
   display: inline-block;
   height: 100%;
 }
-.asciinema-terminal .line {
+pre.asciinema-terminal .line {
   display: block;
   width: 200%;
 }
-.asciinema-terminal .line .cursor-a {
+pre.asciinema-terminal .line .cursor-a {
   display: inline-block;
 }
-.asciinema-terminal .line .cursor-b {
+pre.asciinema-terminal .line .cursor-b {
   display: none;
   border-radius: 0.05em;
 }
-.asciinema-terminal .line .blink {
+pre.asciinema-terminal .line .blink {
   visibility: hidden;
 }
-.asciinema-terminal.cursor .line .cursor-a {
+pre.asciinema-terminal.cursor .line .cursor-a {
   display: none;
 }
-.asciinema-terminal.cursor .line .cursor-b {
+pre.asciinema-terminal.cursor .line .cursor-b {
   display: inline-block;
 }
-.asciinema-terminal.blink .line .blink {
+pre.asciinema-terminal.blink .line .blink {
   visibility: visible;
 }
-.asciinema-terminal .bright {
+pre.asciinema-terminal .bright {
   font-weight: bold;
 }
-.asciinema-terminal .faint {
+pre.asciinema-terminal .faint {
   opacity: 0.5;
 }
-.asciinema-terminal .underline {
+pre.asciinema-terminal .underline {
   text-decoration: underline;
 }
-.asciinema-terminal .italic {
+pre.asciinema-terminal .italic {
   font-style: italic;
 }
-.asciinema-terminal .strikethrough {
+pre.asciinema-terminal .strikethrough {
   text-decoration: line-through;
 }
 .asciinema-player .loading > .asciinema-terminal {
@@ -327,6 +328,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.asciinema-player .loading .loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  border: 10px solid;
+  border-color: rgba(255, 255, 255, 0.15) rgba(255, 255, 255, 0.25) rgba(255, 255, 255, 0.35) rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  animation: asciinema-player-loader-rotation 1s linear infinite;
+}
+.asciinema-player .loading .error {
+  font-size: 8em;
+}
+@keyframes asciinema-player-loader-rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 .asciinema-player .start-prompt {
   z-index: 10;
@@ -1913,6 +1936,9 @@
 .asciinema-theme-asciinema .bg-15 {
   background-color: hsl(0, 0%, 100%);
 }
+.asciinema-theme-asciinema .loading .loader {
+  border-color: rgba(204, 204, 204, 0.3) rgba(204, 204, 204, 0.5) rgba(204, 204, 204, 0.7) #cccccc;
+}
 .asciinema-theme-asciinema .fg-8,
 .asciinema-theme-asciinema .fg-9,
 .asciinema-theme-asciinema .fg-10,
@@ -2032,6 +2058,9 @@
 }
 .asciinema-theme-tango .bg-15 {
   background-color: #EEEEEC;
+}
+.asciinema-theme-tango .loading .loader {
+  border-color: rgba(204, 204, 204, 0.3) rgba(204, 204, 204, 0.5) rgba(204, 204, 204, 0.7) #cccccc;
 }
 .asciinema-theme-tango .fg-8,
 .asciinema-theme-tango .fg-9,
@@ -2153,6 +2182,9 @@
 .asciinema-theme-solarized-dark .bg-15 {
   background-color: #fdf6e3;
 }
+.asciinema-theme-solarized-dark .loading .loader {
+  border-color: rgba(131, 148, 150, 0.3) rgba(131, 148, 150, 0.5) rgba(131, 148, 150, 0.7) #839496;
+}
 .asciinema-theme-solarized-light {
   background-color: #fdf6e3;
 }
@@ -2262,6 +2294,9 @@
 }
 .asciinema-theme-solarized-light .bg-15 {
   background-color: #fdf6e3;
+}
+.asciinema-theme-solarized-light .loading .loader {
+  border-color: rgba(101, 123, 131, 0.3) rgba(101, 123, 131, 0.5) rgba(101, 123, 131, 0.7) #657b83;
 }
 .asciinema-theme-solarized-light .start-prompt .play-button svg .play-btn-fill {
   fill: #dc322f;
@@ -2378,6 +2413,9 @@
 }
 .asciinema-theme-seti .bg-15 {
   background-color: #ffffff;
+}
+.asciinema-theme-seti .loading .loader {
+  border-color: rgba(202, 206, 205, 0.3) rgba(202, 206, 205, 0.5) rgba(202, 206, 205, 0.7) #cacecd;
 }
 .asciinema-theme-seti .fg-8,
 .asciinema-theme-seti .fg-9,
@@ -2499,6 +2537,9 @@
 }
 .asciinema-theme-monokai .bg-15 {
   background-color: #f9f8f5;
+}
+.asciinema-theme-monokai .loading .loader {
+  border-color: rgba(248, 248, 242, 0.3) rgba(248, 248, 242, 0.5) rgba(248, 248, 242, 0.7) #f8f8f2;
 }
 .asciinema-theme-monokai .fg-8,
 .asciinema-theme-monokai .fg-9,
@@ -2623,6 +2664,9 @@
 }
 .asciinema-theme-nord .bg-15 {
   background-color: #ECEFF4;
+}
+.asciinema-theme-nord .loading .loader {
+  border-color: rgba(236, 239, 244, 0.3) rgba(236, 239, 244, 0.5) rgba(236, 239, 244, 0.7) #eceff4;
 }
 .asciinema-theme-nord .fg-8,
 .asciinema-theme-nord .fg-9,
