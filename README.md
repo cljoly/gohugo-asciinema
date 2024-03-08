@@ -7,6 +7,7 @@ gometa: "cj.rs/gohugo-asciinema git https://github.com/cljoly/gohugo-asciinema"
 tags:
 - Hugo
 - Asciinema
+- Performance
 ---
 {{< github_badge >}}
 
@@ -115,14 +116,31 @@ speed = 5.0
 
 ### Notes
 
-* `src` is the only required argument. All the other arguments are parameters in the object passed as the third argument of [`AsciinemaPlayer.create`](https://github.com/asciinema/asciinema-player#api).
+* `src` is the only required argument. All the other arguments are parameters in the object passed as the third argument of [`AsciinemaPlayer.create`](https://docs.asciinema.org/manual/player/quick-start/#basic-usage).
 * ⚠️  `src` is known to sometimes cause problem with relative URLs. Your best bet is to use absolute URLs or at least from the root of the site, as in the above example.
 * Number and boolean should be passed **without** being enclosed in `"`, i.e. `autoPlay=true`, *not* `autoPlay="true"`.
+
+### Advanced Features
+
+#### Preloading
+
+If you want to instruct the browser to [preload](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel/preload) the CSS and JS of the Asciinema Player, only when the page contains an asciicast, you can add the following line in the `<head>` tag of your template:
+
+```
+{{- partial "asciinema_css_js_smart_preload" . -}}
+```
+
+Themes often offer ways to do this easily.
+For instance with [Hugo PaperMod](https://github.com/adityatelange/hugo-PaperMod/), it’s in [this file](https://github.com/adityatelange/hugo-PaperMod/blob/b5f7118d826e663bfe76f56eba2baa028a384325/layouts/partials/extend_head.html).
+
+This partial will also cause [some services](https://developers.cloudflare.com/pages/configuration/early-hints/) to send [Early Hints](https://developers.cloudflare.com/pages/platform/early-hints/).
+That can further improve the page load time.
 
 ## Features
 
 * Displays a message when JavaScript is disabled in the user browser
 * Fingerprinted assets, to improve caching and ultimately your site performance
+* Optional [preloading](#preloading) of JS and CSS assets
 * Easy update with `hugo mod get -u cj.rs/gohugo-asciinema`
 
 ## How Are the Sources of the Player Generated?

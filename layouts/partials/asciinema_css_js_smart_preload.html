@@ -1,0 +1,11 @@
+{{- if ne (.Page.Scratch.Get "GoHugoAsciinemaPlayerShortcode") nil }}
+  {{- with resources.Get "js/asciinema-player.min.js"
+    | resources.Fingerprint "md5" }}
+    <link rel="preload" href="{{ .Permalink }}" as="script" />
+  {{- end }}
+  {{- with resources.Get "css/asciinema-player.css"
+    | resources.Minify
+    | resources.Fingerprint "md5" }}
+    <link rel="preload" href="{{ .Permalink }}" as="style" />
+  {{- end }}
+{{- end }}
