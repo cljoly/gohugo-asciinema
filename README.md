@@ -19,7 +19,9 @@ end_insert -->
 # ⏯️ GoHugo Asciinema
 <!-- end_remove -->
 
-![Min Hugo Version: 0.77.0](https://img.shields.io/badge/min%20Hugo%20version-0.78.0-lightgrey?logo=hugo) [![RSS feed of new versions](https://img.shields.io/badge/subscribe-with%20RSS-FFA500?logo=rss)](https://github.com/cljoly/gohugo-asciinema/releases.atom)
+![Min Hugo Version: 0.77.0](https://img.shields.io/badge/min%20Hugo%20version-0.78.0-lightgrey?logo=hugo)
+[![RSS feed of new versions](https://img.shields.io/badge/subscribe-with%20RSS-FFA500?logo=rss)](https://github.com/cljoly/gohugo-asciinema/releases.atom)
+[![Asciinema Player Version](https://img.shields.io/github/v/tag/cljoly/gohugo-asciinema?label=asciinema%20player%20version)](https://github.com/cljoly/gohugo-asciinema/tags/)
 
 <!-- insert
 {{< rawhtml >}}
