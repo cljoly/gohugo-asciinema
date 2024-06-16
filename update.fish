@@ -3,6 +3,12 @@
 set -l aversion $argv[1]
 
 if test -z $aversion
+    set aversion (gh release list -R asciinema/asciinema-player | fzf | awk '{print $1}')
+    echo $aversion
+end
+
+echo $aversion
+if test -z $aversion
     echo "No version specified"
     exit 1
 end
