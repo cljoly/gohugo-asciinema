@@ -36,9 +36,6 @@ div.ap-wrapper:fullscreen {
   width: 100%;
   align-items: center;
 }
-div.ap-wrapper:fullscreen div.ap-player {
-  position: static;
-}
 div.ap-wrapper:fullscreen .title-bar {
   display: initial;
 }
@@ -200,6 +197,7 @@ pre.ap-terminal {
   background-color: var(--term-color-background);
   border-color: var(--term-color-background);
   outline: none;
+  line-height: var(--term-line-height);
   font-family: Consolas, Menlo, 'Bitstream Vera Sans Mono', monospace, 'Powerline Symbols';
   font-variant-ligatures: none;
 }
@@ -215,10 +213,12 @@ pre.ap-terminal .ap-line span {
 pre.ap-terminal .ap-line {
   display: block;
   width: 100%;
+  height: var(--term-line-height);
   position: relative;
 }
 pre.ap-terminal .ap-line span {
   position: absolute;
+  left: calc(100% * var(--offset) / var(--term-cols));
   color: var(--fg);
   background-color: var(--bg);
 }
@@ -227,35 +227,35 @@ pre.ap-terminal .ap-line .ap-inverse {
   background-color: var(--fg);
 }
 pre.ap-terminal .ap-line .cp-2580 {
-  border-top: calc(0.5em * var(--term-line-height)) solid var(--fg);
+  border-top: calc(0.5 * var(--term-line-height)) solid var(--fg);
   box-sizing: border-box;
 }
 pre.ap-terminal .ap-line .cp-2581 {
-  border-bottom: calc(0.125em * var(--term-line-height)) solid var(--fg);
+  border-bottom: calc(0.125 * var(--term-line-height)) solid var(--fg);
   box-sizing: border-box;
 }
 pre.ap-terminal .ap-line .cp-2582 {
-  border-bottom: calc(0.25em * var(--term-line-height)) solid var(--fg);
+  border-bottom: calc(0.25 * var(--term-line-height)) solid var(--fg);
   box-sizing: border-box;
 }
 pre.ap-terminal .ap-line .cp-2583 {
-  border-bottom: calc(0.375em * var(--term-line-height)) solid var(--fg);
+  border-bottom: calc(0.375 * var(--term-line-height)) solid var(--fg);
   box-sizing: border-box;
 }
 pre.ap-terminal .ap-line .cp-2584 {
-  border-bottom: calc(0.5em * var(--term-line-height)) solid var(--fg);
+  border-bottom: calc(0.5 * var(--term-line-height)) solid var(--fg);
   box-sizing: border-box;
 }
 pre.ap-terminal .ap-line .cp-2585 {
-  border-bottom: calc(0.625em * var(--term-line-height)) solid var(--fg);
+  border-bottom: calc(0.625 * var(--term-line-height)) solid var(--fg);
   box-sizing: border-box;
 }
 pre.ap-terminal .ap-line .cp-2586 {
-  border-bottom: calc(0.75em * var(--term-line-height)) solid var(--fg);
+  border-bottom: calc(0.75 * var(--term-line-height)) solid var(--fg);
   box-sizing: border-box;
 }
 pre.ap-terminal .ap-line .cp-2587 {
-  border-bottom: calc(0.875em * var(--term-line-height)) solid var(--fg);
+  border-bottom: calc(0.875 * var(--term-line-height)) solid var(--fg);
   box-sizing: border-box;
 }
 pre.ap-terminal .ap-line .cp-2588 {
@@ -303,7 +303,7 @@ pre.ap-terminal .ap-line .cp-2593 {
   background-color: color-mix(in srgb, var(--fg) 75%, var(--bg));
 }
 pre.ap-terminal .ap-line .cp-2594 {
-  border-top: calc(0.125em * var(--term-line-height)) solid var(--fg);
+  border-top: calc(0.125 * var(--term-line-height)) solid var(--fg);
   box-sizing: border-box;
 }
 pre.ap-terminal .ap-line .cp-2595 {
@@ -312,25 +312,25 @@ pre.ap-terminal .ap-line .cp-2595 {
 }
 pre.ap-terminal .ap-line .cp-2596 {
   border-right: 0.5ch solid var(--bg);
-  border-top: calc(0.5em * var(--term-line-height)) solid var(--bg);
+  border-top: calc(0.5 * var(--term-line-height)) solid var(--bg);
   background-color: var(--fg);
   box-sizing: border-box;
 }
 pre.ap-terminal .ap-line .cp-2597 {
   border-left: 0.5ch solid var(--bg);
-  border-top: calc(0.5em * var(--term-line-height)) solid var(--bg);
+  border-top: calc(0.5 * var(--term-line-height)) solid var(--bg);
   background-color: var(--fg);
   box-sizing: border-box;
 }
 pre.ap-terminal .ap-line .cp-2598 {
   border-right: 0.5ch solid var(--bg);
-  border-bottom: calc(0.5em * var(--term-line-height)) solid var(--bg);
+  border-bottom: calc(0.5 * var(--term-line-height)) solid var(--bg);
   background-color: var(--fg);
   box-sizing: border-box;
 }
 pre.ap-terminal .ap-line .cp-2599 {
   border-left: 0.5ch solid var(--fg);
-  border-bottom: calc(0.5em * var(--term-line-height)) solid var(--fg);
+  border-bottom: calc(0.5 * var(--term-line-height)) solid var(--fg);
   box-sizing: border-box;
 }
 pre.ap-terminal .ap-line .cp-259a {
@@ -341,7 +341,7 @@ pre.ap-terminal .ap-line .cp-259a::after {
   content: '';
   position: absolute;
   width: 0.5ch;
-  height: calc(0.5em * var(--term-line-height));
+  height: calc(0.5 * var(--term-line-height));
   background-color: var(--fg);
 }
 pre.ap-terminal .ap-line .cp-259a::before {
@@ -354,17 +354,17 @@ pre.ap-terminal .ap-line .cp-259a::after {
 }
 pre.ap-terminal .ap-line .cp-259b {
   border-left: 0.5ch solid var(--fg);
-  border-top: calc(0.5em * var(--term-line-height)) solid var(--fg);
+  border-top: calc(0.5 * var(--term-line-height)) solid var(--fg);
   box-sizing: border-box;
 }
 pre.ap-terminal .ap-line .cp-259c {
   border-right: 0.5ch solid var(--fg);
-  border-top: calc(0.5em * var(--term-line-height)) solid var(--fg);
+  border-top: calc(0.5 * var(--term-line-height)) solid var(--fg);
   box-sizing: border-box;
 }
 pre.ap-terminal .ap-line .cp-259d {
   border-left: 0.5ch solid var(--bg);
-  border-bottom: calc(0.5em * var(--term-line-height)) solid var(--bg);
+  border-bottom: calc(0.5 * var(--term-line-height)) solid var(--bg);
   background-color: var(--fg);
   box-sizing: border-box;
 }
@@ -376,7 +376,7 @@ pre.ap-terminal .ap-line .cp-259e::after {
   content: '';
   position: absolute;
   width: 0.5ch;
-  height: calc(0.5em * var(--term-line-height));
+  height: calc(0.5 * var(--term-line-height));
   background-color: var(--fg);
 }
 pre.ap-terminal .ap-line .cp-259e::before {
@@ -389,19 +389,19 @@ pre.ap-terminal .ap-line .cp-259e::after {
 }
 pre.ap-terminal .ap-line .cp-259f {
   border-right: 0.5ch solid var(--fg);
-  border-bottom: calc(0.5em * var(--term-line-height)) solid var(--fg);
+  border-bottom: calc(0.5 * var(--term-line-height)) solid var(--fg);
   box-sizing: border-box;
 }
 pre.ap-terminal .ap-line .cp-e0b0 {
   border-left: 1ch solid var(--fg);
-  border-top: calc(0.5em * var(--term-line-height)) solid transparent;
-  border-bottom: calc(0.5em * var(--term-line-height)) solid transparent;
+  border-top: calc(0.5 * var(--term-line-height)) solid transparent;
+  border-bottom: calc(0.5 * var(--term-line-height)) solid transparent;
   box-sizing: border-box;
 }
 pre.ap-terminal .ap-line .cp-e0b2 {
   border-right: 1ch solid var(--fg);
-  border-top: calc(0.5em * var(--term-line-height)) solid transparent;
-  border-bottom: calc(0.5em * var(--term-line-height)) solid transparent;
+  border-top: calc(0.5 * var(--term-line-height)) solid transparent;
+  border-bottom: calc(0.5 * var(--term-line-height)) solid transparent;
   box-sizing: border-box;
 }
 pre.ap-terminal.ap-cursor-on .ap-line .ap-cursor {
@@ -441,8 +441,7 @@ div.ap-player div.ap-control-bar {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, #000000 25%, #000000 100%);
-  color: #bbb;
+  color: var(--term-color-foreground);
   box-sizing: content-box;
   line-height: 1;
   position: absolute;
@@ -451,19 +450,17 @@ div.ap-player div.ap-control-bar {
   opacity: 0;
   transition: opacity 0.15s linear;
   user-select: none;
+  border-top: 2px solid color-mix(in oklab, black 33%, var(--term-color-background));
   z-index: 30;
 }
 div.ap-player div.ap-control-bar * {
   box-sizing: inherit;
-  font-size: 0;
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: bold;
 }
 div.ap-control-bar svg.ap-icon path {
-  fill: #bbb;
+  fill: var(--term-color-foreground);
 }
 div.ap-control-bar span.ap-playback-button {
-  display: block;
+  display: flex;
   flex: 0 0 auto;
   cursor: pointer;
   height: 12px;
@@ -475,19 +472,21 @@ div.ap-control-bar span.ap-playback-button svg {
   width: 12px;
 }
 div.ap-control-bar span.ap-timer {
-  display: block;
+  display: flex;
   flex: 0 0 auto;
   min-width: 50px;
   margin: 0 10px;
   height: 100%;
   text-align: center;
-  font-size: 11px;
-  line-height: 34px;
+  font-size: 13px;
+  line-height: 100%;
   cursor: default;
 }
 div.ap-control-bar span.ap-timer span {
-  display: inline-block;
+  font-family: Consolas, Menlo, 'Bitstream Vera Sans Mono', monospace;
   font-size: inherit;
+  font-weight: 600;
+  margin: auto;
 }
 div.ap-control-bar span.ap-timer .ap-time-remaining {
   display: none;
@@ -496,7 +495,7 @@ div.ap-control-bar span.ap-timer:hover .ap-time-elapsed {
   display: none;
 }
 div.ap-control-bar span.ap-timer:hover .ap-time-remaining {
-  display: inline;
+  display: flex;
 }
 div.ap-control-bar .ap-progressbar {
   display: block;
@@ -518,14 +517,15 @@ div.ap-control-bar .ap-progressbar .ap-bar .ap-gutter {
   left: 0;
   right: 0;
   height: 3px;
-  background-color: #333;
 }
-div.ap-control-bar .ap-progressbar .ap-bar .ap-gutter .ap-gutter-fill {
-  display: inline-block;
-  height: 100%;
-  background-color: #bbb;
+div.ap-control-bar .ap-progressbar .ap-bar .ap-gutter-empty {
+  background-color: color-mix(in oklab, var(--term-color-foreground) 20%, var(--term-color-background));
+}
+div.ap-control-bar .ap-progressbar .ap-bar .ap-gutter-full {
+  width: 100%;
+  transform-origin: left center;
+  background-color: var(--term-color-foreground);
   border-radius: 3px;
-  z-index: 10;
 }
 div.ap-control-bar.ap-seekable .ap-progressbar .ap-bar {
   cursor: pointer;
@@ -537,24 +537,30 @@ div.ap-control-bar .ap-fullscreen-button {
   height: 14px;
   padding: 9px;
   cursor: pointer;
+  position: relative;
 }
 div.ap-control-bar .ap-fullscreen-button svg {
   width: 14px;
   height: 14px;
 }
-div.ap-control-bar .ap-fullscreen-button svg:first-child {
+div.ap-control-bar .ap-fullscreen-button svg.ap-icon-fullscreen-on {
   display: inline;
 }
-div.ap-control-bar .ap-fullscreen-button svg:last-child {
+div.ap-control-bar .ap-fullscreen-button svg.ap-icon-fullscreen-off {
   display: none;
+}
+div.ap-control-bar .ap-fullscreen-button .ap-tooltip {
+  right: 5px;
+  left: initial;
+  transform: none;
 }
 div.ap-wrapper.ap-hud .ap-control-bar {
   opacity: 1;
 }
-div.ap-wrapper:fullscreen .ap-fullscreen-button svg:first-child {
+div.ap-wrapper:fullscreen .ap-fullscreen-button svg.ap-icon-fullscreen-on {
   display: none;
 }
-div.ap-wrapper:fullscreen .ap-fullscreen-button svg:last-child {
+div.ap-wrapper:fullscreen .ap-fullscreen-button svg.ap-icon-fullscreen-off {
   display: inline;
 }
 span.ap-progressbar span.ap-marker-container {
@@ -564,7 +570,6 @@ span.ap-progressbar span.ap-marker-container {
   width: 21px;
   position: absolute;
   margin-left: -10px;
-  z-index: 9;
 }
 span.ap-marker-container span.ap-marker {
   display: block;
@@ -572,40 +577,42 @@ span.ap-marker-container span.ap-marker {
   bottom: 12px;
   left: 7px;
   right: 7px;
-  background-color: #555;
+  background-color: color-mix(in oklab, var(--term-color-foreground) 33%, var(--term-color-background));
   position: absolute;
   transition: top 0.1s, bottom 0.1s, left 0.1s, right 0.1s, background-color 0.1s;
   border-radius: 50%;
 }
 span.ap-marker-container span.ap-marker.ap-marker-past {
-  background-color: #bbb;
+  background-color: var(--term-color-foreground);
 }
 span.ap-marker-container span.ap-marker:hover,
 span.ap-marker-container:hover span.ap-marker {
-  background-color: #bbb;
+  background-color: var(--term-color-foreground);
   top: 11px;
   bottom: 10px;
   left: 5px;
   right: 5px;
 }
-span.ap-marker-container span.ap-marker-tooltip {
+.ap-tooltip-container span.ap-tooltip {
   visibility: hidden;
-  background-color: #333;
-  color: #bbb;
+  background-color: var(--term-color-foreground);
+  color: var(--term-color-background);
+  font-family: Consolas, Menlo, 'Bitstream Vera Sans Mono', monospace;
+  font-weight: bold;
   text-align: center;
-  padding: 2px 8px 0px 8px;
+  padding: 0 0.5em;
   border-radius: 4px;
   position: absolute;
   z-index: 1;
   white-space: nowrap;
   /* Prevents the text from wrapping and makes sure the tooltip width adapts to the text length */
-  font-size: 11px;
+  font-size: 13px;
   line-height: 2em;
   bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
 }
-span.ap-marker-container:hover span.ap-marker-tooltip {
+.ap-tooltip-container:hover span.ap-tooltip {
   visibility: visible;
 }
 .ap-player .ap-overlay {
@@ -679,6 +686,56 @@ span.ap-marker-container:hover span.ap-marker-tooltip {
   padding: 0;
   display: inline-block;
   height: 100%;
+}
+.ap-player .ap-overlay-help {
+  background-color: rgba(0, 0, 0, 0.8);
+  container-type: inline-size;
+}
+.ap-player .ap-overlay-help > div {
+  font-family: Consolas, Menlo, 'Bitstream Vera Sans Mono', monospace, 'Powerline Symbols';
+  font-variant-ligatures: none;
+  max-width: 85%;
+  max-height: 85%;
+  font-size: 18px;
+  color: var(--term-color-foreground);
+  background-color: var(--term-color-background);
+  border-radius: 6px;
+  box-sizing: border-box;
+  margin-bottom: 32px;
+}
+.ap-player .ap-overlay-help > div .ap-line {
+  letter-spacing: normal;
+  overflow: hidden;
+}
+.ap-player .ap-overlay-help > div .ap-line span {
+  padding: 0;
+  display: inline-block;
+  height: 100%;
+}
+.ap-player .ap-overlay-help > div div {
+  padding: calc(min(4cqw, 40px));
+  font-size: calc(min(1.9cqw, 18px));
+}
+.ap-player .ap-overlay-help > div div p {
+  font-weight: bold;
+  margin: 0 0 2em 0;
+}
+.ap-player .ap-overlay-help > div div ul {
+  list-style: none;
+  padding: 0;
+}
+.ap-player .ap-overlay-help > div div ul li {
+  margin: 0 0 0.75em 0;
+}
+.ap-player .ap-overlay-help > div div kbd {
+  color: var(--term-color-background);
+  background-color: var(--term-color-foreground);
+  padding: 0.2em 0.5em;
+  border-radius: 0.2em;
+  font-family: inherit;
+  font-size: 0.85em;
+  border: none;
+  margin: 0;
 }
 .ap-player .ap-overlay-error span {
   font-size: 8em;
