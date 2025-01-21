@@ -22,6 +22,7 @@ end_insert -->
 ![Min Hugo Version: 0.77.0](https://img.shields.io/badge/min%20Hugo%20version-0.78.0-lightgrey?logo=hugo)
 [![RSS feed of new versions](https://img.shields.io/badge/subscribe-with%20RSS-FFA500?logo=rss)](https://github.com/cljoly/gohugo-asciinema/releases.atom)
 [![Asciinema Player Version](https://img.shields.io/github/v/tag/cljoly/gohugo-asciinema?label=asciinema%20player%20version&logo=asciinema)](https://github.com/cljoly/gohugo-asciinema/tags/)
+[![Powered by RISS (cj.rs/riss)](https://img.shields.io/badge/powered%20by-riss-lightgrey)](https://cj.rs/riss)
 
 <!-- insert
 {{< rawhtml >}}
@@ -57,7 +58,9 @@ This Hugo module makes it very easy to use the Asciinema Player on your Hugo-pow
 
 ### Install This Module
 
-1.  Just run:
+Once Hugo modules are set up (see the [previous section](#hugo-module)), you can install the asciinema module itself.
+
+1.  Run:
     ```
     hugo mod get -u -v cj.rs/gohugo-asciinema
     ```
@@ -118,9 +121,14 @@ speed = 5.0
 
 ### Notes
 
-* `src` is the only required argument. All the other arguments are parameters in the object passed as the third argument of [`AsciinemaPlayer.create`](https://docs.asciinema.org/manual/player/quick-start/#basic-usage).
-* ⚠️  `src` is known to sometimes cause problem with relative URLs. Your best bet is to use absolute URLs or at least from the root of the site, as in the above example.
-* Number and boolean should be passed **without** being enclosed in `"`, i.e. `autoPlay=true`, *not* `autoPlay="true"`.
+> [!NOTE]
+> `src` is the only required argument. All the other arguments are parameters in the object passed as the third argument of [`AsciinemaPlayer.create`](https://docs.asciinema.org/manual/player/quick-start/#basic-usage).
+
+> [!WARNING]
+> `src` is known to sometimes cause problem with relative URLs. Your best bet is to use absolute URLs or at least from the root of the site, as in the above example.
+
+> [!IMPORTANT]
+> Numbers and booleans should be passed **without** being enclosed in `"`, i.e. `autoPlay=true`, *not* `autoPlay="true"`.
 
 ### Advanced Features
 
