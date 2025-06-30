@@ -83,16 +83,21 @@ Once Hugo modules are set up (see the [previous section](#hugo-module)), you can
 
 ## Use
 
-Use this [shortcode](https://gohugo.io/content-management/shortcodes/):
+Use this [shortcode][]:
 <!-- remove -->
 ```md
 {{< asciicast src="/telescope-repo-nvim/telescope.json" poster="npt:0:04" autoPlay=true loop=true >}}
 ```
+
+[This is how it’ll be rendered on your website][example_use].
 <!-- end_remove -->
 <!-- insert
 ```md
-{{</* asciicast src="/telescope-repo-nvim/telescope.json" poster="npt:0:04" autoPlay=true loop=true */>}}
+{{</* asciicast src="/blog/cargo-info-in-neovim/demo.json" poster="npt:0:04" autoPlay=true loop=true */>}}
 ```
+
+It's rendered like this:
+{{< asciicast src="/blog/cargo-info-in-neovim/demo.json" poster="npt:0:04" autoPlay=true loop=true >}}
 end_insert -->
 
 ### Defaults
@@ -141,7 +146,7 @@ If you want to instruct the browser to [preload](https://developer.mozilla.org/e
 ```
 
 Themes often offer ways to do this easily.
-For instance with [Hugo PaperMod](https://github.com/adityatelange/hugo-PaperMod/), it’s in [this file](https://github.com/adityatelange/hugo-PaperMod/blob/b5f7118d826e663bfe76f56eba2baa028a384325/layouts/partials/extend_head.html).
+For instance with [Hugo PaperMod][PaperMod], it’s in [this file][extended_header].
 
 This partial will also cause [some services](https://developers.cloudflare.com/pages/configuration/early-hints/) to send [Early Hints](https://developers.cloudflare.com/pages/platform/early-hints/).
 That can further improve the page load time.
@@ -174,3 +179,16 @@ path = "cj.rs/gohugo-asciinema"
 ```
 
 Please consider sending a PR with your patches, it’s always appreciated and will save you the trouble of maintaining the changes on your own!
+
+### License
+
+The code of this module (everything but the folder `assets`) is under the [Apache License 2.0][apache2], like the asciinema player itself.
+
+The `assets` folder contains the asciinema player. This code is Copyright Marcin Kulik, licensed under the [Apache License, Version 2.0][apache2]. See the [upstream repository][player] for the full sources.
+
+[example_use]: https://cj.rs/gohugo-asciinema/#use
+[apache2]: https://www.apache.org/licenses/LICENSE-2.0
+[player]: https://github.com/asciinema/asciinema-player
+[extended_header]: https://github.com/adityatelange/hugo-PaperMod/blob/b5f7118d826e663bfe76f56eba2baa028a384325/layouts/partials/extend_head.html
+[PaperMod]: https://github.com/adityatelange/hugo-PaperMod/
+[shortcode]: https://gohugo.io/content-management/shortcodes/
