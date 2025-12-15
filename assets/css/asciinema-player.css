@@ -109,13 +109,15 @@ div.ap-term {
   font-size: inherit;
   font-variant-ligatures: none;
   border: 0;
+  border-radius: 0;
   background-color: transparent;
 }
 .ap-term-text .ap-line {
   display: block;
   width: 100%;
   height: var(--term-line-height);
-  position: relative;
+  position: absolute;
+  top: calc(100% * var(--row) / var(--term-rows));
   letter-spacing: normal;
   overflow: hidden;
 }
