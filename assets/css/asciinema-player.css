@@ -436,7 +436,11 @@ span.ap-marker-container:hover span.ap-marker {
 .ap-player .ap-overlay-info span {
   font-family: var(--term-font-family);
   font-size: 2em;
-  color: var(--term-color-foreground);
+  font-weight: bold;
+  color: var(--term-color-background);
+  background-color: var(--term-color-foreground);
+  padding: 0.5em 0.75em;
+  text-transform: uppercase;
 }
 .ap-player .ap-overlay-help {
   background-color: rgba(0, 0, 0, 0.8);
